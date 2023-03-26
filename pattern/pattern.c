@@ -29,28 +29,50 @@ int main(void)
 		while (j < r)
 		{
 			if (k - i < k - j && i < k)
-				printf("%d ", k - j);
+			{
+				if (k > 9)
+					printf("%02d ", k - j);
+				else
+					printf("%d ", k - j);
+			}
 			else if (r - i <= j && i < k)
 			{
 				s = s + 1;
-				printf("%d ", k - i + s);
+				if (k > 9)
+					printf("%02d ", k - i + s);
+				else
+					printf("%d ", k - i + s);
 			}
 			else if (i + 1 - k < k - j && i >= k)
 			{
-				printf("%d ", k - u);
+				if (k > 9)
+					printf("%02d ", k - u);
+				else
+					printf("%d ", k - u);
 				u = u + 1;
 			}
 			else if (j > i && i >= k)
 			{
 				z = z + 1;
-				printf("%d ", i - k + 2 + z);
+				if (k > 9)
+					printf("%02d ", i - k + 2 + z);
+				else
+					printf("%d ", i - k + 2 + z);
 			}
 			else if ( i >= k)
 			{
-				printf("%d ", i - k + 2);
+				if (k > 9)
+					printf("%02d ", i - k + 2);
+				else
+					printf("%d ", i - k + 2);
 			}
 			else
-				printf("%d ", k - i);
+			{
+				if (k > 9)
+					printf("%02d ", k - i);
+				else
+					printf("%d ", k - i);
+			}
 			j++;
 		}
 		printf("\n");
