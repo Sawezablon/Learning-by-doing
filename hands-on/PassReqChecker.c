@@ -37,12 +37,11 @@ void passLength()
         ;
     if (i < 8)
     {
-        printf("Password is less than 8 characters\n");
+        printf("Minimum of 8 characters\n");
         passLength();
     }
     else
     {
-        printf("length\n");
         _is_upper(ch);
     }
 }
@@ -51,12 +50,11 @@ void _is_upper(char *ch)
 {
     if (*ch == '\0')
     {
-        printf("Missing Uppercase / Lowercase / Special character\n");
+        printf("Missing Uppercase\n");
         passLength();
     }
     if (isupper(*ch))
     {
-        printf("uppe\n");
         _is_lower(ch);
     }
     else
@@ -69,12 +67,11 @@ void _is_lower(char *ch)
 {
     if (*ch == '\0')
     {
-        printf("Missing Uppercase / Lowercase / Special character\n");
+        printf("Missing Lowercase\n");
         passLength();
     }
     if (islower(*ch))
     {
-        printf("lower\n");
         _is_digit(ch);
     }
     else
@@ -87,12 +84,11 @@ void _is_digit(char *ch)
 {
     if (*ch == '\0')
     {
-        printf("Missing Number / Uppercase / Lowercase / Special character\n");
+        printf("Missing Number\n");
         passLength();
     }
     if (isdigit(*ch))
     {
-        printf("digit\n");
         _is_specialC(ch);
     }
     else
