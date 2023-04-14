@@ -42,6 +42,7 @@ void passLength()
     }
     else
     {
+        printf("length\n");
         _is_upper(ch);
     }
 }
@@ -55,6 +56,7 @@ void _is_upper(char *ch)
     }
     if (isupper(*ch))
     {
+        printf("uppe\n");
         _is_lower(ch);
     }
     else
@@ -72,6 +74,7 @@ void _is_lower(char *ch)
     }
     if (islower(*ch))
     {
+        printf("lower\n");
         _is_digit(ch);
     }
     else
@@ -89,6 +92,7 @@ void _is_digit(char *ch)
     }
     if (isdigit(*ch))
     {
+        printf("digit\n");
         _is_specialC(ch);
     }
     else
@@ -99,22 +103,6 @@ void _is_digit(char *ch)
 
 int _is_specialC(char *ch)
 {
-<<<<<<< HEAD
-	if (*ch == '\0')
-	{
-		printf("Missing Number / Uppercase / Lowercase / Special character\n");
-		passLength();
-	}
-	if (!isalnum(*ch))
-	{
-		printf("The password meets the requirements\n");
-		exit(0);
-	}
-	else
-	{
-		_is_specialC(ch + 1);
-	}
-=======
     if (*ch == '\0')
     {
         printf("Missing Special character\n");
@@ -129,5 +117,4 @@ int _is_specialC(char *ch)
     {
         _is_specialC(ch + 1);
     }
->>>>>>> 4d30a47a159bda79f976d0f24f08c7f910f04814
 }
