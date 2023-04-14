@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 /**
   * main - Check if password Entered meets requirement
@@ -107,7 +108,7 @@ int _is_specialC(char *ch)
 		printf("Missing Number / Uppercase / Lowercase / Special character\n");
 		passLength();
 	}
-	if (!((*ch >= 48 && *ch <= 57) || (*ch >= 65 && *ch <= 90) || (*ch >= 97 && *ch <= 122) || (*ch >= 33 && *ch <= 47) || (*ch >= 58 && *ch <= 64) || (*ch >= 91 && *ch <= 96) || (*ch >= 123 && *ch <= 126)))
+	if (!isalnum(*ch))
 	{
 		printf("The password meets the requirements\n");
 		exit(0);
