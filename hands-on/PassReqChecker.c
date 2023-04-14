@@ -104,7 +104,7 @@ int _is_specialC(char *ch)
         printf("Missing Special character\n");
         passLength();
     }
-    if (!isalnum(*ch))
+    if (*ch == 64)
     {
         printf("The password meets the requirements\n");
         exit(0);
