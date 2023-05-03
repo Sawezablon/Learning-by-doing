@@ -28,7 +28,7 @@ void report(char *table_name)
     free(sql);
 
     sqlite3_close(db);
-    printf("\033[%dC%s", columns, "Enter 0 to go back home");
+    printf("\033[%dC%s", columns, "Enter 0 to go back home: ");
     scanf("%d", &back);
     system("clear");
     printf("\033[%dC%s", columns, "Please wait...!\n");
