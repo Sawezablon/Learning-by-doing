@@ -20,3 +20,30 @@ int menu()
 
 	return (option);
 }
+
+char *table()
+{
+	int option;
+
+	while (1)
+	{
+		system("clear");
+        	printf("        ***************WELCOME*************** \n");
+        	printf("              Which product? \n");
+        	printf("              1. Milk\n");
+        	printf("              2. Salad\n");
+        	printf("              3. Mala\n");
+        	printf("              Enter your choice: ");
+
+        	scanf("%d", &option);
+
+		if (option == 1)
+			return ("milk");
+		else if (option == 2)
+			return ("salad");
+		else if (option == 3)
+			return ("mala");
+		else
+			printf("Invalid choice. Please try again.\n");
+	}
+}

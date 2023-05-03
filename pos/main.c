@@ -5,37 +5,52 @@
   */
 int main(void)
 {
-	sqlite3 *db;
-	int option = 0;
-	char *sql;
+        sqlite3 *db;
+        int option = 0;
+        char *sql;
+	char table_name[10];
 
 	sqlite3_open("wizard.db", &db);
 
-	sql = "CREATE TABLE data (date TEXT, buying_price REAL, selling_price REAL, profit REAL);";
-	sqlite3_exec(db, sql, 0, 0, 0);
-	while (option != 4)
-	{
-		option = menu();
+        sql = "CREATE TABLE salad (id INTEGER PRIMARY KEY AUTOINCREMENT, Date DATE NOT NULL, Buying_Price REAL NOT NULL, Selling_Price REAL NOT NULL, Target_Price REAL NOT NULL, Profit REAL NOT NULL);";
 
-		system("clear");
-		switch (option)
+	sqlite3_exec(db, sql, 0, 0, 0);
+
+	sql = "CREATE TABLE milk (id INTEGER PRIMARY KEY AUTOINCREMENT, Date DATE NOT NULL, Buying_Price REAL NOT NULL, Selling_Price REAL NOT NULL, Target_Price REAL NOT NULL, Profit REAL NOT NULL);";
+
+        sqlite3_exec(db, sql, 0, 0, 0);
+
+	sql = "CREATE TABLE mala (id INTEGER PRIMARY KEY AUTOINCREMENT, Date DATE NOT NULL, Buying_Price REAL NOT NULL, Selling_Price REAL NOT NULL, Target_Price REAL NOT NULL, Profit REAL NOT NULL);";
+
+        sqlite3_exec(db, sql, 0, 0, 0);
+        
+        while (option != 4)
+        {
+                option = menu();
+		if (option == 1 || option == 2 || option == 3)
 		{
-			case 1:
-				data();
-				break;
-			case 2:
-				update();
-				break;
-			case 3:
-				report();
-				break;
-			case 4:
-				printf("Goodbye!\n");
-				break;
-			default:
-				printf("Invalid option. Please try again.\n");
+			strcpy(table_name, table());
 		}
-	}
-	sqlite3_close(db);
-	return (0);
+
+                system("clear");
+                switch (option)
+                {
+                        case 1:
+                                data(table_name);
+                                break;
+                        case 2:
+                                update(table_name);
+                                break;
+                        case 3:
+                                report(table_name);
+                                break;
+                        case 4:
+                                printf("Goodbye!\n");
+                                break;
+                        default:
+                                printf("Invalid option. Please try again.\n");
+                }
+        }
+        sqlite3_close(db);
+        return (0);
 }
