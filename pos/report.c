@@ -9,6 +9,7 @@ void report(char *table_name)
     char *err_msg = 0;
     char cap[10];
     int columns = 80;
+    int back;
 
     strcpy(cap, table_name);
     cap[0] = toupper(cap[0]);
@@ -26,8 +27,13 @@ void report(char *table_name)
     sqlite3_exec(db, sql, callback, 0, &err_msg);
     free(sql);
 
-    sleep(10);
     sqlite3_close(db);
+    printf("\033[%dC%s", columns, "Enter 0 to go back home");
+    scanf("%d", &back);
+    system("clear");
+    printf("\033[%dC%s", columns, "Please wait...!\n");
+    sleep(1);
+
 }
 
 static int callback(void *data, int argc, char **argv, char **az_col_name)

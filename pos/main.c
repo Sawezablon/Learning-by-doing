@@ -31,6 +31,8 @@ int main(void)
 		if (option == 1 || option == 2 || option == 3)
 		{
 			strcpy(table_name, table());
+			if (strcmp(table_name, "0") == 0)
+				option = 5;
 		}
 
                 system("clear");
@@ -47,8 +49,9 @@ int main(void)
                                 break;
                         case 4:
                                 printf("\033[%dC%s", columns, "Goodbye!\n");
-				sleep(2);
                                 break;
+			case 5:
+				break;
                         default:
                                 printf("\033[%dC%s", columns, "Invalid option. Please try again.\n");
 				sleep(2);

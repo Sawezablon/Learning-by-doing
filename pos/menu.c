@@ -19,6 +19,9 @@ int menu()
 
 	scanf("%d", &option);
 
+	system("clear");
+	printf("\033[%dC%s", columns, "Please wait...!\n");
+	sleep(1);
 	return (option);
 }
 
@@ -34,21 +37,49 @@ char *table()
         	printf("\033[%dC%s\n", columns, "1. Milk");
         	printf("\033[%dC%s\n", columns, "2. Salad");
         	printf("\033[%dC%s\n", columns, "3. Mala");
+		printf("\033[%dC%s\n", columns, "4. Back Home");
         	printf("\033[%dC%s", columns, "Enter your choice: ");
 
         	scanf("%d", &option);
 
+
 		if (option == 1)
+		{
+			system("clear");
+			printf("\033[%dC%s", columns, "Please wait...!\n");
+			sleep(1);
 			return ("milk");
+		}
 		else if (option == 2)
+		{
+			system("clear");
+			printf("\033[%dC%s", columns, "Please wait...!\n");
+			sleep(1);
 			return ("salad");
+		}
 		else if (option == 3)
+		{
+			system("clear");
+			printf("\033[%dC%s", columns, "Please wait...!\n");
+			sleep(1);
 			return ("mala");
+		}
+		else if (option == 4)
+		{
+			system("clear");
+			printf("\033[%dC%s", columns, "Please wait...!\n");
+			sleep(1);
+			return ("0");
+		}
 		else
 		{
+			system("clear");
+			printf("\033[%dC%s", columns, "Please wait...!\n");
+			sleep(1);
 			printf("\033[%dC%s\n", columns, "Invalid choice. Please try again.");
 			sleep(2);
 
 		}
+
 	}
 }
