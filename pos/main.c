@@ -9,6 +9,7 @@ int main(void)
         int option = 0;
         char *sql;
 	char table_name[10];
+	int columns = 80;
 
 	sqlite3_open("wizard.db", &db);
 
@@ -45,10 +46,12 @@ int main(void)
                                 report(table_name);
                                 break;
                         case 4:
-                                printf("Goodbye!\n");
+                                printf("\033[%dC%s", columns, "Goodbye!\n");
+				sleep(2);
                                 break;
                         default:
-                                printf("Invalid option. Please try again.\n");
+                                printf("\033[%dC%s", columns, "Invalid option. Please try again.\n");
+				sleep(2);
                 }
         }
         sqlite3_close(db);

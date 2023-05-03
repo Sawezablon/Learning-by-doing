@@ -6,15 +6,16 @@
 int menu()
 {
 	int option;
+	int columns = 80;
 
 	system("clear");
-	printf("	***************WELCOME*************** \n");
-	printf("              How can we help you today       \n");
-	printf("              1. Enter new data               \n");
-	printf("              2. Update data                  \n");
-	printf("              3. Print report                 \n");
-	printf("              4. Quit                         \n");
-	printf("              Enter your choice: ");
+	printf("\033[%dC%s\n", columns, "WELCOME HOME");
+	printf("\033[%dC%s\n", columns, "How can we help you today");
+	printf("\033[%dC%s\n", columns, "1. Enter new data");
+	printf("\033[%dC%s\n", columns, "2. Update data");
+	printf("\033[%dC%s\n", columns, "3. Print report");
+	printf("\033[%dC%s\n", columns, "4. Quit");
+	printf("\033[%dC%s", columns, "Enter your choice: ");
 
 	scanf("%d", &option);
 
@@ -24,16 +25,16 @@ int menu()
 char *table()
 {
 	int option;
+	int columns = 80;
 
 	while (1)
 	{
 		system("clear");
-        	printf("        ***************WELCOME*************** \n");
-        	printf("              Which product? \n");
-        	printf("              1. Milk\n");
-        	printf("              2. Salad\n");
-        	printf("              3. Mala\n");
-        	printf("              Enter your choice: ");
+        	printf("\033[%dC%s\n", columns, "CHOOSE THE PRODUCT");
+        	printf("\033[%dC%s\n", columns, "1. Milk");
+        	printf("\033[%dC%s\n", columns, "2. Salad");
+        	printf("\033[%dC%s\n", columns, "3. Mala");
+        	printf("\033[%dC%s", columns, "Enter your choice: ");
 
         	scanf("%d", &option);
 
@@ -44,6 +45,10 @@ char *table()
 		else if (option == 3)
 			return ("mala");
 		else
-			printf("Invalid choice. Please try again.\n");
+		{
+			printf("\033[%dC%s\n", columns, "Invalid choice. Please try again.");
+			sleep(2);
+
+		}
 	}
 }
