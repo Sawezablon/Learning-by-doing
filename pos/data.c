@@ -14,7 +14,7 @@ void data(char* table_name)
 
     sqlite3_open("wizard.db", &db);
 
-    printf("\033[%dC%s", columns, "ENTER NEW DATA\n");
+    printf("\033[12B\033[%dC%s", columns, "ENTER NEW DATA\n");
     printf("\033[%dC%s", columns, "Enter date (yyyy-mm-dd): ");
     scanf("%s", date_str);
     printf("\033[%dC%s", columns, "Enter Buying Price: ");
@@ -44,7 +44,7 @@ void data(char* table_name)
 
     free(sql);
     system("clear");
-    printf("\033[%dC%s", columns, "Data updated successfully.\n");
+    printf("\033[12B\033[%dC%s", columns, "Data updated successfully.\n");
     sleep(2);
 }
 
@@ -57,7 +57,7 @@ void update(char *table_name) {
     char sql_profit[100];
     int columns = 80;
 
-    printf("\033[%dC%s", columns, "UPDATE EXISTING DATA\n");
+    printf("\033[12B\033[%dC%s", columns, "UPDATE EXISTING DATA\n");
     printf("\033[%dC%s", columns, "Enter date (yyyy-mm-dd): ");
     scanf("%10s", date_str);
 
@@ -85,7 +85,7 @@ void update(char *table_name) {
 
             sqlite3_close(db);
 	    system("clear");
-	    printf("\033[%dC%s", columns, "Buying price updated successfully.\n");
+	    printf("\033[12B\033[%dC%s", columns, "Buying price updated successfully.\n");
 	    sleep(2);
             break;
         case 2:
@@ -104,7 +104,7 @@ void update(char *table_name) {
 
             sqlite3_close(db);
 	    system("clear");
-	    printf("\033[%dC%s", columns, "Selling price updated successfully.\n");
+	    printf("\033[12B\033[%dC%s", columns, "Selling price updated successfully.\n");
 	    sleep(2);
             break;
         case 3:
@@ -118,7 +118,7 @@ void update(char *table_name) {
             sqlite3_exec(db, sql_target, 0, 0, &err_msg);
             sqlite3_close(db);
 	    system("clear");
-	    printf("\033[%dC%s", columns, "Target price updated successfully.\n");
+	    printf("\033[12B\033[%dC%s", columns, "Target price updated successfully.\n");
 	    sleep(2);
             break;
         default:

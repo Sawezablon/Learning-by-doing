@@ -53,7 +53,7 @@ int main(void)
 			case 5:
 				break;
                         default:
-                                printf("\033[%dC%s", columns, "Invalid option. Please try again.\n");
+                                printf("\033[12B\033[%dC%s", columns, "Invalid option. Please try again.\n");
 				sleep(2);
                 }
         }
