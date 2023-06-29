@@ -1,15 +1,15 @@
 #!/usr/bin/python3
 import os
-from db_operations import *
 
 #Simple to-do list manager
 def main():
-    choice = home_info()
-    os.system("clear")
-    print(choice)
+    while True:
+        choice = home_info()
+        print_choice(choice)
 
 
 def home_info():
+    os.system("clear")
     print("""
 To-Do List Manager
 ------------------
@@ -23,6 +23,13 @@ To-Do List Manager
         """)
     choice = int(input("Enter your choice: "))
     return choice
+
+def print_choice(choice):
+    os.system('clear')
+    if choice == 1:
+        print("Input New Task here: ")
+    elif choice == 2:
+        print()
       
 
 if __name__ == "__main__":
