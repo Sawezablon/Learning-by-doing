@@ -27,10 +27,13 @@ To-Do List Manager
 def print_choice(choice):
     os.system('clear')
     if choice == 1:
-        print("Input New Task here: ")
+        print("Adding New Task")
+        task = input("Enter Task:")
     elif choice == 2:
         print()
-      
+
+def view_task():
+    pass
 
 if __name__ == "__main__":
     main()
