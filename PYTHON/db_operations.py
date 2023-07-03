@@ -33,3 +33,23 @@ def delete_table(table_name):
     finally:
         if conn is not None:
             close_connection(conn)
+
+def insert_data(table_name, values):
+    try:
+        conn = connect()
+        cur = conn.cursor()
+
+        placeholders = ', '.join(['%s'] * len(values[0]))
+
+        insert_query = f"INSERT INTO {table_name} VALUES ({placeholders})"
+
+        cur.executemany(insert_query, values)
+        conn.commit()
+        cur.close()
+        close_connection(conn)
+        print("Data inserted successfully!")
+    except (psycopg2.Error, Exception) as e:
+        print("Error occurred during data insertion:", str(e))
+    finally:
+        if conn is not None:
+            close_connection(conn)

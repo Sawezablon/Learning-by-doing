@@ -5,7 +5,7 @@ def connect():
         host = "localhost",
         database = "learn",
         user = "postgres",
-        password = "12345"
+        password = "D@wizard_64"
     )
     return conn
 
